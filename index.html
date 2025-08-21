@@ -131,18 +131,25 @@
 
     /* الأكوردين */
     .accordion { width: 80%; margin: 20px auto; border: 2px solid #006400; border-radius: 8px; overflow: hidden; }
-    .accordion-btn {
-      width: 100%;
-      background-color: orange;
-      color: white;
-      text-align: right;
-      padding: 15px;
-      font-size: 18px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+   .accordion {
+  width: fit-content;       /* الحجم حسب محتوى النص */
+  margin: 20px auto;
+  border: 2px solid #006400; /* حواف أخضر داكن */
+  border-radius: 8px;
+  overflow: hidden;
+}
+.accordion-btn {
+  background-color: orange;
+  color: white;
+  text-align: right;
+  padding: 10px 20px;       /* حجم مناسب للنص */
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.accordion-btn:hover { background-color: darkorange; }
+
     .accordion-btn:hover { background-color: darkorange; }
     .accordion-content {
       max-height: 0;
@@ -333,6 +340,7 @@
 
 </body>
 </html>
+
 
 
 
