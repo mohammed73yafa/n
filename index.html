@@ -131,23 +131,31 @@
 
     /* الأكوردين */
     .accordion { width: 80%; margin: 20px auto; border: 2px solid #006400; border-radius: 8px; overflow: hidden; }
-   .accordion {
-  width: fit-content;       /* الحجم حسب محتوى النص */
-  margin: 20px auto;
-  border: 2px solid #006400; /* حواف أخضر داكن */
-  border-radius: 8px;
+    .accordion {
+  width: fit-content;               /* الحجم حسب النص */
+  margin: 15px auto;                /* مسافة بين البرامج */
+  border: 2px solid #006400;       /* حواف أخضر داكن */
+  border-radius: 12px;              /* حواف دائرية مشابهة للشريط العلوي */
   overflow: hidden;
+  background-color: orange;         /* لون خلفية الشريط */
+  display: inline-block;            /* لتغيير حجم العرض حسب النص */
 }
+
 .accordion-btn {
-  background-color: orange;
+  background: none;                 /* لا خلفية لأن الشريط موجود للخلفية */
   color: white;
-  text-align: right;
-  padding: 10px 20px;       /* حجم مناسب للنص */
+  text-align: center;               /* النص في الوسط */
+  padding: 10px 20px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-  transition: background 0.3s;
+  display: block;
 }
+
+.accordion-btn:hover {
+  background-color: darkorange;
+}
+
 .accordion-btn:hover { background-color: darkorange; }
 
     .accordion-btn:hover { background-color: darkorange; }
@@ -340,6 +348,7 @@
 
 </body>
 </html>
+
 
 
 
