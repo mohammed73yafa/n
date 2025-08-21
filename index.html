@@ -2,17 +2,27 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>الواجهة الرئيسية</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- أيقونات Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    @media (max-width: 768px) {
+      .accordion { width: 95%; font-size: 16px; }
+      .accordion-btn { font-size: 16px; padding: 12px; text-align: center; }
+      .accordion-content p { font-size: 14px; line-height: 1.4; text-align: center; }
+      .big-logo img { max-width: 100%; height: auto; }
+      .programs { grid-template-columns: 1fr; }
+    }
+
     body {
       margin: 0;
       font-family: "Tajawal", sans-serif;
-      background: url('logo.png') no-repeat top right, url('logo.png') no-repeat bottom left;
-      background-size: 150px, 150px;
-      background-color: #f4f4f4;
+      background: #f4f4f4;
+      background-image: url('logo.png'), url('logo.png');
+      background-position: top right, bottom left;
+      background-repeat: no-repeat;
+      background-size: 180px, 180px;
     }
 
     /* شريط علوي */
@@ -26,98 +36,117 @@
       padding: 10px 20px;
       margin: 10px;
     }
-
-    .top-bar img {
-      height: 70px;
-      margin-left: 30px;
-    }
-
-    #menu-toggle {
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
-    }
+    .top-bar img { height: 70px; margin-left: 30px; }
+    #menu-toggle { font-size: 24px; color: white; cursor: pointer; }
 
     /* القائمة الجانبية */
     .side-menu {
       position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100%;
-      background: #111;
-      color: white;
+      top: 0; right: -250px;
+      width: 250px; height: 100%;
+      background: #111; color: white;
       padding-top: 60px;
       transition: 0.3s;
       z-index: 1000;
     }
-
     .side-menu.open { right: 0; }
-    .side-menu a {
-      display: block;
-      padding: 12px;
-      text-decoration: none;
-      color: white;
-    }
+    .side-menu a { display: block; padding: 12px; text-decoration: none; color: white; }
     .side-menu a:hover { background: orange; color: black; }
     .side-menu .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 28px;
-      cursor: pointer;
-      color: #fff;
+      position: absolute; top: 10px; right: 15px;
+      font-size: 28px; cursor: pointer; color: #fff;
     }
     .side-menu .close-btn:hover { color: #006400; }
 
     /* اللوجو الكبير */
-    .big-logo {
-      text-align: center;
-      margin: 30px 0;
-    }
+    .big-logo { text-align: center; margin: 30px 0; }
     .big-logo img { width: 500px; max-width: 100%; }
 
-    /* النص قبل الصور */
-    p { text-align: center; }
-
-    /* قسم الصور */
-    .logos {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin: 30px auto;
-      max-width: 400px;
-    }
-    .logos .item {
+    /* نص عن المركز */
+    .about-text {
       text-align: center;
-      background: #fff;
-      padding: 15px;
+      margin: 10px auto;
+      max-width: 700px;
+      color: #333;
+      line-height: 1.8;
+    }
+    .read-more {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .read-more a {
+      color: darkgreen;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* قسم البرامج */
+    .programs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .program-card {
+      background: white;
       border: 2px solid #006400;
       border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .logos img {
-      width: 120px;
-      height: auto;
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .program-card img {
+      width: 100px; height: 100px;
+      object-fit: cover;
       margin-bottom: 10px;
     }
-    .logos p {
-      font-weight: bold;
-      margin: 8px 0;
+    .program-card h3 {
+      margin: 10px 0;
+      color: #006400;
+      font-size: 18px;
     }
-    .show-more {
+    .program-card a {
       display: inline-block;
       margin-top: 8px;
-      padding: 8px 14px;
-      background: #006400;
-      color: white;
-      border-radius: 8px;
+      color: darkgreen;
+      font-weight: bold;
       text-decoration: none;
-      font-size: 14px;
+    }
+    .program-card a i { margin-right: 5px; }
+
+    /* الأكورديون */
+    .accordion {
+      width: 90%;
+      margin: 20px auto;
+      border: 2px solid #006400;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .accordion-btn {
+      width: 100%;
+      background-color: orange;
+      color: white;
+      text-align: right;
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
       transition: background 0.3s;
     }
-    .show-more i { margin-right: 6px; }
-    .show-more:hover { background: #004d00; }
+    .accordion-btn:hover { background-color: darkorange; }
+    .accordion-content {
+      max-height: 0; overflow: hidden;
+      background: #f1f1f1;
+      transition: max-height 0.4s ease-out;
+      padding: 0 15px;
+    }
+    .accordion-content p { padding: 15px 0; margin: 0; color: #333; line-height: 1.6; }
 
     /* الشريط السفلي */
     footer {
@@ -128,24 +157,18 @@
       border-top: 2px solid #006400;
       margin-top: 30px;
     }
-    .trainees, .courses { margin-bottom: 15px; }
-    .trainees .title, .courses .title {
-      font-size: 16px; font-weight: bold; color: white;
-    }
-    .trainees .number, .courses .number {
-      font-size: 28px; font-weight: bold; color: white;
-    }
+    .trainees, .courses { text-align: center; margin-bottom: 15px; }
+    .trainees .title, .courses .title { font-size: 16px; font-weight: bold; }
+    .trainees .number, .courses .number { font-size: 28px; font-weight: bold; }
     .social-icons a {
-      color: green;
-      margin: 0 10px;
-      font-size: 24px;
-      text-decoration: none;
-      transition: transform 0.2s, color 0.2s;
+      color: green; margin: 0 10px; font-size: 24px;
+      text-decoration: none; transition: transform 0.2s, color 0.2s;
     }
     .social-icons a:hover { transform: scale(1.2); color: lime; }
   </style>
 </head>
 <body>
+
   <!-- شريط علوي -->
   <div class="top-bar">
     <div class="images">
@@ -171,52 +194,73 @@
     <img src="p4.jpg" alt="اللوجو الكبير">
   </div>
 
-  <!-- عن المركز -->
-  <p>عن المركز</p>
-  <p>تأسس مركز تدريب وتأهيل الشباب عدن في مارس 2022م من قبل وزارة الشباب والرياضة ، وهو من مخرجات الخطة الاستراتيجية للشباب، وأحد مشاريع مراكز الشباب في تعز وعدن وحضرموت الذي تنفذه منظمة شباب بلا حدود للتنمية.... </p>
-
-  <div style="text-align: center; margin: 20px 0;">
-    <a href="رابط_الصفحة.html" style="color: darkgreen; cursor: pointer; font-weight: bold; text-decoration: none;">
-      قراءة المزيد
-    </a>
+  <!-- نص عن المركز -->
+  <p class="about-text">عن المركز</p>
+  <p class="about-text">
+    تأسس مركز تدريب وتأهيل الشباب عدن في مارس 2022م من قبل وزارة الشباب والرياضة...
+  </p>
+  <div class="read-more">
+    <a href="#">قراءة المزيد</a>
   </div>
 
-  <!-- الصور الأربع -->
-  <div class="logos">
-    <div class="item">
-      <img src="p86.jpg" alt="شعار1">
-      <p>برنامج الإرشاد والتثقيف الصحي</p>
-      <a href="رابط1.html" class="show-more"><i class="fas fa-arrow-down"></i> إظهار المزيد</a>
-    </div>
+  <!-- اللوجو الثاني -->
+  <div class="big-logo">
+    <img src="p10.jpg" alt="اللوجو الكبير">
+  </div>
 
-    <div class="item">
-      <img src="p7.jpg" alt="شعار2">
-      <p>برنامج بناء القدرات وتنمية المهارات</p>
-      <a href="رابط2.html" class="show-more"><i class="fas fa-arrow-down"></i> إظهار المزيد</a>
+  <!-- البرامج -->
+  <div class="programs">
+    <div class="program-card">
+      <img src="p86.jpg" alt="شعار">
+      <h3>برنامج الإرشاد والتثقيف الصحي</h3>
+      <a href="#">إظهار المزيد <i class="fas fa-arrow-down"></i></a>
     </div>
+    <div class="program-card">
+      <img src="p7.jpg" alt="شعار">
+      <h3>برنامج بناء القدرات وتنمية المهارات</h3>
+      <div class="accordion">
+        <button class="accordion-btn">تفاصيل</button>
+        <div class="accordion-content">
+          <p>- برنامج التأهيل الإداري الوظيفي<br>- المشاركة المجتمعية للشباب<br>...</p>
+        </div>
+      </div>
+    </div>
+    <div class="program-card">
+      <img src="p8.jpg" alt="شعار">
+      <h3>برنامج الأنشطة الرياضية</h3>
+      <div class="accordion">
+        <button class="accordion-btn">تفاصيل</button>
+        <div class="accordion-content">
+          <p>- بطولة كرة القدم<br>- بطولة كرة الطائرة<br>- بطولة الشطرنج</p>
+        </div>
+      </div>
+    </div>
+    <div class="program-card">
+      <img src="p9.jpg" alt="شعار">
+      <h3>برنامج الحماية والدعم النفسي</h3>
+      <div class="accordion">
+        <button class="accordion-btn">تفاصيل</button>
+        <div class="accordion-content">
+          <p>- جلسات دعم نفسي جماعية<br>- جلسات فردية<br>- إدارة الحالة</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <div class="item">
-      <img src="p8.jpg" alt="شعار3">
-      <p>برنامج الأنشطة الرياضية</p>
-      <a href="رابط3.html" class="show-more"><i class="fas fa-arrow-down"></i> إظهار المزيد</a>
-    </div>
-
-    <div class="item">
-      <img src="p9.jpg" alt="شعار4">
-      <p>برنامج الحماية والدعم النفسي</p>
-      <a href="رابط4.html" class="show-more"><i class="fas fa-arrow-down"></i> إظهار المزيد</a>
-    </div>
+  <!-- العنوان قبل الفوتر -->
+  <div class="link-text" style="text-align:center; margin:30px 0;">
+    <a href="#">عدن - الشيخ عثمان - المدينة الراضية</a>
   </div>
 
   <!-- الشريط السفلي -->
   <footer>
     <div class="trainees">
       <p class="title">عدد المتدربين</p>
-      <p class="number" id="trainee-number">1200</p>
+      <p class="number" id="trainee-number">0</p>
     </div>
     <div class="courses">
       <p class="title">عدد الدورات</p>
-      <p class="number" id="course-number">25</p>
+      <p class="number" id="course-number">0</p>
     </div>
     <div class="social-icons">
       <a href="#"><i class="fab fa-facebook"></i></a>
@@ -228,6 +272,7 @@
     <p>تصميم: Cyber Aden</p>
   </footer>
 
+  <!-- JavaScript -->
   <script>
     const menuToggle = document.getElementById("menu-toggle");
     const sideMenu = document.getElementById("side-menu");
@@ -237,29 +282,46 @@
       e.stopPropagation();
       sideMenu.classList.toggle("open");
     });
-    closeBtn.addEventListener("click", () => {
-      sideMenu.classList.remove("open");
-    });
+    closeBtn.addEventListener("click", () => { sideMenu.classList.remove("open"); });
     document.addEventListener("click", (e) => {
       if (sideMenu.classList.contains("open") && !sideMenu.contains(e.target) && e.target !== menuToggle) {
         sideMenu.classList.remove("open");
       }
     });
+
+    function animateNumber(id, target, duration) {
+      const element = document.getElementById(id);
+      let start = 0;
+      const increment = target / (duration / 20);
+      const interval = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          start = target;
+          clearInterval(interval);
+        }
+        element.textContent = Math.floor(start);
+      }, 20);
+    }
+
+    window.addEventListener('load', () => {
+      animateNumber('course-number', 25, 4000);
+      animateNumber('trainee-number', 1200, 4000);
+    });
+
+    document.querySelectorAll(".accordion-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const content = button.nextElementSibling;
+        button.classList.toggle("active");
+        if (button.classList.contains("active")) {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+          content.style.maxHeight = null;
+        }
+      });
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
