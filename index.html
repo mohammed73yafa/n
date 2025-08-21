@@ -6,6 +6,38 @@
   <!-- أيقونات Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+      @media (max-width: 768px) {
+      .accordion {
+        width: 95%;
+        font-size: 16px;
+      }
+      .accordion-btn {
+        font-size: 16px;
+        padding: 12px;
+        text-align: center;
+      }
+      .accordion-content p {
+        font-size: 14px;
+        line-height: 1.4;
+        text-align: center;
+      }
+      .big-logo img {
+        max-width: 100%;
+        height: auto;
+      }
+      .logos img {
+        max-width: 80px;
+        width: 100%;
+        height: auto;
+      }
+    }
+    @media (max-width: 480px) {
+      .accordion-btn { font-size: 14px; padding: 10px; }
+      .accordion-content p { font-size: 13px; }
+    }
+
+    
+    
     body {
       margin: 0;
       font-family: "Tajawal", sans-serif;
@@ -489,4 +521,5 @@ document.querySelectorAll(".accordion-btn").forEach(button => {
 });
 
   </script></body>
+
 </html>
